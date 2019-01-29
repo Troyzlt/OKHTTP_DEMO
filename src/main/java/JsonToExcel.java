@@ -1,18 +1,15 @@
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 
 public class JsonToExcel {
@@ -27,7 +24,7 @@ public class JsonToExcel {
 
         HSSFCellStyle style = workbook.createCellStyle();
 
-        style.setFillBackgroundColor(HSSFColor.BLUE_GREY.index);
+        //style.setFillBackgroundColor(HSSFColor.BLUE_GREY.index);
 
         HSSFRow titleRow = sheet.createRow(0);
 

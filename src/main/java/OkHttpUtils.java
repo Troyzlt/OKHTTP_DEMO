@@ -4,7 +4,10 @@ import com.google.common.collect.Lists;
 import okhttp3.*;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -49,13 +52,13 @@ public class OkHttpUtils {
             }
         }
         url += param;
-        Request request = new Request.Builder().header("cookie", "store_link_token=2.00079b389992acbb021632862bdb48e669").url(url).get().build();
+        Request request = new Request.Builder().header("cookie", "store_link_token=2.0027eca7a5b2adc4c7364519170e27fd57").url(url).get().build();
         Response response = OkHttpUtils.syncCall(request);
         String string = response.body().string();
         return string;
     }
 
-    public String GETRequest2(String url, Map<String, String> paramMap) throws Exception {
+    public JSONArray GETRequest2(String url, Map<String, String> paramMap) throws Exception {
         String param;
         if (Objects.isNull(paramMap) || paramMap.size() == 0){
             param = "";
@@ -73,10 +76,11 @@ public class OkHttpUtils {
             }
         }
         url += param;
-        Request request = new Request.Builder().header("cookie", "store_link_token=2.003d1110f6a826936d2cb8ae44ccdd044d").url(url).get().build();
+        Request request = new Request.Builder().url(url).get().build();
         Response response = OkHttpUtils.syncCall(request);
         String string = response.body().string();
-        return string;
+        JSONArray jsonArray = JSONArray.parseArray(string);
+        return jsonArray;
     }
 
     public String GETRequest3(String url, Map<String, String> paramMap) throws Exception {
